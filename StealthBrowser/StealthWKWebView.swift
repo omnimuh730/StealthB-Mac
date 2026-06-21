@@ -3,9 +3,7 @@ import WebKit
 
 final class StealthWKWebView: WKWebView {
     var allowsDragAndDrop = false {
-        didSet {
-            applyDragAndDropPolicy()
-        }
+        didSet { applyDragAndDropPolicy() }
     }
 
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
@@ -25,11 +23,10 @@ final class StealthWKWebView: WKWebView {
             unregisterDraggedTypes(in: self)
         }
 
-        let enabled = allowsDragAndDrop
-        let script = """
-        window.__stealthDragDropEnabled = \(enabled ? "true" : "false");
-        """
-        evaluateJavaScript(script, completionHandler: nil)
+        evaluateJavaScript(
+            WebViewPolicyScript.dragDropEnabled(allowsDragAndDrop),
+            completionHandler: nil
+        )
     }
 
     override func layout() {
@@ -66,31 +63,4 @@ final class StealthWKWebView: WKWebView {
             unregisterDraggedTypes(in: subview)
         }
     }
-}
-
-enum WebViewDragDropScript {
-    static let bootstrap = """
-    (function() {
-        if (window.__stealthDragDropListenersInstalled) { return; }
-        window.__stealthDragDropListenersInstalled = true;
-        window.__stealthDragDropEnabled = false;
-
-        function shouldBlock() {
-            return !window.__stealthDragDropEnabled;
-        }
-
-        function block(event) {
-            if (!shouldBlock()) { return; }
-            event.preventDefault();
-            event.stopPropagation();
-            event.stopImmediatePropagation();
-            return false;
-        }
-
-        ['dragenter', 'dragover', 'dragleave', 'drop', 'dragstart'].forEach(function(type) {
-            window.addEventListener(type, block, true);
-            document.addEventListener(type, block, true);
-        });
-    })();
-    """
 }

@@ -25,7 +25,7 @@ struct WebViewSettingsView: View {
             } header: {
                 Text("Web Engine")
             } footer: {
-                Text("StealthBrowser uses the system WebKit framework — the same engine Safari uses on this Mac. It is not a separate or outdated embed.")
+                Text("On macOS, WKWebView is the native WebView component — the same engine Safari uses. macOS does not ship a Chromium-based WebView like Windows WebView2.")
             }
 
             Section {
@@ -35,7 +35,7 @@ struct WebViewSettingsView: View {
             } header: {
                 Text("Behavior")
             } footer: {
-                Text("Popups, drag and drop, and tooltips are disabled by default. Changes apply immediately to the web view.")
+                Text("Uses a modern Safari desktop user agent so sites serve their current layout. Popup blocking only stops automatic JS popups — link clicks still open in this window.")
             }
         }
         .formStyle(.grouped)

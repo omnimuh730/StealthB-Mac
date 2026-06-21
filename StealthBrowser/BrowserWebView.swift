@@ -45,9 +45,17 @@ struct BrowserWebView: NSViewRepresentable {
         }
 
         func applySettings(to webView: StealthWKWebView) {
-            webView.allowsDragAndDrop = settings.allowDragAndDrop
-            webView.allowsLinkPreview = settings.allowTooltips
-            applyTooltipPolicy(to: webView)
+            WebViewPolicyApplier.apply(settings: settings, to: webView)
+        }
+
+        func webView(
+            _ webView: WKWebView,
+            decidePolicyFor navigationAction: WKNavigationAction,
+            preferences: WKWebpagePreferences,
+            decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void
+        ) {
+            WebViewConfigurationFactory.applyNavigationPreferences(preferences)
+            decisionHandler(.allow, preferences)
         }
 
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
@@ -55,10 +63,7 @@ struct BrowserWebView: NSViewRepresentable {
         }
 
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            applyTooltipPolicy(to: webView)
-            if let stealthWebView = webView as? StealthWKWebView {
-                stealthWebView.applyDragAndDropPolicy()
-            }
+            WebViewPolicyApplier.apply(settings: settings, to: webView)
             state.updateNavigationState()
         }
 
@@ -76,50 +81,12 @@ struct BrowserWebView: NSViewRepresentable {
             for navigationAction: WKNavigationAction,
             windowFeatures: WKWindowFeatures
         ) -> WKWebView? {
-            guard settings.allowPopups else { return nil }
-
+            // Single-window browser: load target=_blank / new-window links in this view.
+            // Popup setting only controls automatic JS window.open(), not user link clicks.
             if navigationAction.targetFrame == nil {
                 webView.load(navigationAction.request)
             }
             return nil
-        }
-
-        private func applyTooltipPolicy(to webView: WKWebView) {
-            let script: String
-            if settings.allowTooltips {
-                script = """
-                (function() {
-                    if (window.__stealthTooltipObserver) {
-                        window.__stealthTooltipObserver.disconnect();
-                        window.__stealthTooltipObserver = null;
-                    }
-                })();
-                """
-            } else {
-                script = """
-                (function() {
-                    document.querySelectorAll('[title]').forEach(function(element) {
-                        element.removeAttribute('title');
-                    });
-                    if (window.__stealthTooltipObserver) {
-                        window.__stealthTooltipObserver.disconnect();
-                    }
-                    window.__stealthTooltipObserver = new MutationObserver(function() {
-                        document.querySelectorAll('[title]').forEach(function(element) {
-                            element.removeAttribute('title');
-                        });
-                    });
-                    window.__stealthTooltipObserver.observe(document.documentElement, {
-                        subtree: true,
-                        childList: true,
-                        attributes: true,
-                        attributeFilter: ['title']
-                    });
-                })();
-                """
-            }
-
-            webView.evaluateJavaScript(script, completionHandler: nil)
         }
     }
 }
