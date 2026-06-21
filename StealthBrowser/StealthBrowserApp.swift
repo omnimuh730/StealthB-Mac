@@ -4,6 +4,7 @@ import SwiftUI
 struct StealthBrowserApp: App {
     init() {
         StealthWindowManager.activate()
+        GlobalHotkeyManager.shared.activate()
     }
 
     var body: some Scene {
@@ -23,31 +24,31 @@ struct StealthBrowserApp: App {
                 Button("More Transparent") {
                     WindowController.shared.moreTransparent()
                 }
-                .keyboardShortcut("i", modifiers: .command)
+                .keyboardShortcut("i", modifiers: .control)
 
                 Button("Less Transparent") {
                     WindowController.shared.lessTransparent()
                 }
-                .keyboardShortcut("k", modifiers: .command)
+                .keyboardShortcut("k", modifiers: .control)
 
                 Divider()
 
                 Button("Hide Window") {
                     WindowController.shared.hideWindow()
                 }
-                .keyboardShortcut(";", modifiers: .command)
+                .keyboardShortcut(";", modifiers: .control)
 
                 Button("Show Window") {
                     WindowController.shared.showWindow()
                 }
-                .keyboardShortcut("'", modifiers: .command)
+                .keyboardShortcut("'", modifiers: .control)
 
                 Divider()
 
                 Button("Quit StealthBrowser") {
                     WindowController.shared.quit()
                 }
-                .keyboardShortcut("u", modifiers: .command)
+                .keyboardShortcut("u", modifiers: .control)
             }
         }
 

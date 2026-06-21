@@ -1,0 +1,55 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Xcode build products
+build/
+DerivedData/
+.derivedData/
+dist/
+*.app
+*.appex
+*.dSYM
+*.dSYM.zip
+*.ipa
+*.xcarchive
+
+# Xcode user-specific data
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+*.hmap
+*.ipa
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Accidental local artifacts
+*.log
+*.tmp
+*.temp
+/tmp/
+
+# IDE
+.idea/
+*.swp
+*~

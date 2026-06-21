@@ -34,17 +34,22 @@ final class WindowController {
     }
 
     func hideWindow() {
-        NSApp.keyWindow?.orderOut(nil)
+        for window in NSApp.windows where isBrowserWindow(window) {
+            window.orderOut(nil)
+        }
     }
 
     func showWindow() {
-        let browserWindow = NSApp.windows.first { window in
-            window.canBecomeKey && window.title != "Settings"
-        } ?? NSApp.windows.first { $0.canBecomeKey }
+        let browserWindow = NSApp.windows.first(where: isBrowserWindow)
+            ?? NSApp.windows.first { $0.canBecomeKey }
 
         browserWindow?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
         applyOpacity()
+    }
+
+    private func isBrowserWindow(_ window: NSWindow) -> Bool {
+        window.canBecomeKey && window.title != "Settings"
     }
 
     func quit() {
