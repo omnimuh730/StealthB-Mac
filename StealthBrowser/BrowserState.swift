@@ -1,13 +1,41 @@
+import Foundation
 import WebKit
+
+enum BrowserRouting {
+    static let homeURL = "https://www.google.com"
+
+    static func resolve(_ input: String) -> URL? {
+        let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return URL(string: homeURL) }
+
+        if let url = URL(string: trimmed), url.scheme != nil, url.host != nil {
+            return url
+        }
+
+        if looksLikeDomain(trimmed), let url = URL(string: "https://\(trimmed)") {
+            return url
+        }
+
+        var components = URLComponents(string: "https://www.google.com/search")
+        components?.queryItems = [URLQueryItem(name: "q", value: trimmed)]
+        return components?.url
+    }
+
+    private static func looksLikeDomain(_ text: String) -> Bool {
+        let pattern = #"^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+(/.*)?$"#
+        return text.range(of: pattern, options: .regularExpression) != nil
+    }
+}
 
 @Observable
 @MainActor
 final class BrowserState {
-    var urlString = "https://duckduckgo.com"
+    var urlString = BrowserRouting.homeURL
     var canGoBack = false
     var canGoForward = false
     var isLoading = false
     var title = "Stealth Browser"
+    var reportedUserAgent = ""
 
     private(set) weak var webView: WKWebView?
 
@@ -17,18 +45,18 @@ final class BrowserState {
 
     func loadURL() {
         guard let webView else { return }
-        let trimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return }
-
-        if let url = URL(string: trimmed), url.scheme != nil {
-            webView.load(URLRequest(url: url))
-            return
-        }
-
-        let withScheme = "https://\(trimmed)"
-        guard let url = URL(string: withScheme) else { return }
-        urlString = withScheme
+        guard let url = BrowserRouting.resolve(urlString) else { return }
+        urlString = url.absoluteString
         webView.load(URLRequest(url: url))
+    }
+
+    func load(urlString: String) {
+        self.urlString = urlString
+        loadURL()
+    }
+
+    func loadHome() {
+        load(urlString: BrowserRouting.homeURL)
     }
 
     func goBack() {
@@ -47,6 +75,17 @@ final class BrowserState {
         webView?.stopLoading()
     }
 
+    func toggleBookmark() {
+        guard let url = webView?.url?.absoluteString else { return }
+        if BookmarkStore.shared.contains(url: url) {
+            if let bookmark = BookmarkStore.shared.bookmarks.first(where: { $0.url == url }) {
+                BookmarkStore.shared.remove(id: bookmark.id)
+            }
+        } else {
+            BookmarkStore.shared.add(title: title, url: url)
+        }
+    }
+
     func updateNavigationState() {
         canGoBack = webView?.canGoBack ?? false
         canGoForward = webView?.canGoForward ?? false
@@ -54,6 +93,11 @@ final class BrowserState {
         title = webView?.title ?? "Stealth Browser"
         if let currentURL = webView?.url?.absoluteString {
             urlString = currentURL
+        }
+
+        guard let webView else { return }
+        Task {
+            reportedUserAgent = await WebEngineInfo.fetchUserAgent(from: webView) ?? reportedUserAgent
         }
     }
 }

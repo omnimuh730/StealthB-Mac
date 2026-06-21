@@ -21,7 +21,9 @@ private struct StealthWindowAccessor: NSViewRepresentable {
 
     private func applyStealth(to view: NSView) {
         DispatchQueue.main.async {
-            view.window?.sharingType = .none
+            if let window = view.window {
+                StealthWindowManager.applyStealth(to: window)
+            }
         }
     }
 }
