@@ -11,19 +11,20 @@ extension View {
 private struct StealthWindowAccessor: NSViewRepresentable {
     func makeNSView(context: Context) -> NSView {
         let view = NSView()
-        applyStealth(to: view)
+        applyWindowConfiguration(to: view)
         return view
     }
 
     func updateNSView(_ nsView: NSView, context: Context) {
-        applyStealth(to: nsView)
+        applyWindowConfiguration(to: nsView)
     }
 
-    private func applyStealth(to view: NSView) {
+    private func applyWindowConfiguration(to view: NSView) {
         DispatchQueue.main.async {
-            if let window = view.window {
-                StealthWindowManager.applyStealth(to: window)
-            }
+            guard let window = view.window else { return }
+            StealthWindowManager.applyStealth(to: window)
+            WindowFocusGuard.shared.register(window: window)
+            window.alphaValue = WindowController.shared.windowOpacity
         }
     }
 }

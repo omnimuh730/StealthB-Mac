@@ -4,9 +4,10 @@ import WebKit
 struct BrowserWebView: NSViewRepresentable {
     let state: BrowserState
     let settings: WebViewSettings
+    var onOpenNewTab: ((URL) -> Void)?
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(state: state, settings: settings)
+        Coordinator(state: state, settings: settings, onOpenNewTab: onOpenNewTab)
     }
 
     func makeNSView(context: Context) -> StealthWKWebView {
@@ -34,10 +35,12 @@ struct BrowserWebView: NSViewRepresentable {
     final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
         var state: BrowserState
         var settings: WebViewSettings
+        var onOpenNewTab: ((URL) -> Void)?
 
-        init(state: BrowserState, settings: WebViewSettings) {
+        init(state: BrowserState, settings: WebViewSettings, onOpenNewTab: ((URL) -> Void)?) {
             self.state = state
             self.settings = settings
+            self.onOpenNewTab = onOpenNewTab
         }
 
         func configure(webView: StealthWKWebView) {
@@ -81,10 +84,12 @@ struct BrowserWebView: NSViewRepresentable {
             for navigationAction: WKNavigationAction,
             windowFeatures: WKWindowFeatures
         ) -> WKWebView? {
-            // Single-window browser: load target=_blank / new-window links in this view.
-            // Popup setting only controls automatic JS window.open(), not user link clicks.
-            if navigationAction.targetFrame == nil {
-                webView.load(navigationAction.request)
+            guard navigationAction.targetFrame == nil else { return nil }
+
+            if let url = navigationAction.request.url, let onOpenNewTab {
+                onOpenNewTab(url)
+            } else if let url = navigationAction.request.url {
+                webView.load(URLRequest(url: url))
             }
             return nil
         }
