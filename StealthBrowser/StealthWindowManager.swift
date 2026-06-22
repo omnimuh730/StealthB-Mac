@@ -16,6 +16,7 @@ enum StealthWindowManager {
             queue: .main
         ) { _ in
             Task { @MainActor in
+                applyDockIcon()
                 applyToAllWindows()
             }
         }
@@ -60,5 +61,15 @@ enum StealthWindowManager {
 
     static func applyStealth(to window: NSWindow) {
         window.sharingType = .none
+    }
+
+    private static func applyDockIcon() {
+        guard let url = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+              let image = NSImage(contentsOf: url) else {
+            return
+        }
+
+        image.size = NSSize(width: 512, height: 512)
+        NSApp.applicationIconImage = image
     }
 }
