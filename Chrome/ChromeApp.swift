@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct StealthBrowserApp: App {
+struct ChromeApp: App {
     init() {
         StealthWindowManager.activate()
         GlobalHotkeyManager.shared.activate()
@@ -45,7 +45,7 @@ struct StealthBrowserApp: App {
 
                 Divider()
 
-                Button("Quit StealthBrowser") {
+                Button("Quit Chrome") {
                     WindowController.shared.quit()
                 }
                 .keyboardShortcut("u", modifiers: .control)

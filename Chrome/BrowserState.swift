@@ -34,7 +34,7 @@ final class BrowserState {
     var canGoBack = false
     var canGoForward = false
     var isLoading = false
-    var title = "Stealth Browser"
+    var title = "Chrome"
     var reportedUserAgent = ""
 
     private(set) weak var webView: WKWebView?
@@ -90,7 +90,7 @@ final class BrowserState {
         canGoBack = webView?.canGoBack ?? false
         canGoForward = webView?.canGoForward ?? false
         isLoading = webView?.isLoading ?? false
-        title = webView?.title ?? "Stealth Browser"
+        title = webView?.title ?? "Chrome"
         if let currentURL = webView?.url?.absoluteString {
             urlString = currentURL
         }

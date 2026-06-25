@@ -12,37 +12,37 @@
 			containerPortal = 00B7574D2FE87A06003F2079 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 00B757542FE87A06003F2079;
-			remoteInfo = StealthBrowser;
+			remoteInfo = Chrome;
 		};
 		00B757722FE87A08003F2079 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00B7574D2FE87A06003F2079 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 00B757542FE87A06003F2079;
-			remoteInfo = StealthBrowser;
+			remoteInfo = Chrome;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00B757552FE87A06003F2079 /* StealthBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StealthBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		00B757672FE87A08003F2079 /* StealthBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StealthBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		00B757712FE87A08003F2079 /* StealthBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StealthBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00B757552FE87A06003F2079 /* Chrome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chrome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00B757672FE87A08003F2079 /* ChromeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChromeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00B757712FE87A08003F2079 /* ChromeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChromeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		00B757572FE87A06003F2079 /* StealthBrowser */ = {
+		00B757572FE87A06003F2079 /* Chrome */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StealthBrowser;
+			path = Chrome;
 			sourceTree = "<group>";
 		};
-		00B7576A2FE87A08003F2079 /* StealthBrowserTests */ = {
+		00B7576A2FE87A08003F2079 /* ChromeTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StealthBrowserTests;
+			path = ChromeTests;
 			sourceTree = "<group>";
 		};
-		00B757742FE87A08003F2079 /* StealthBrowserUITests */ = {
+		00B757742FE87A08003F2079 /* ChromeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StealthBrowserUITests;
+			path = ChromeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		00B7574C2FE87A06003F2079 = {
 			isa = PBXGroup;
 			children = (
-				00B757572FE87A06003F2079 /* StealthBrowser */,
-				00B7576A2FE87A08003F2079 /* StealthBrowserTests */,
-				00B757742FE87A08003F2079 /* StealthBrowserUITests */,
+				00B757572FE87A06003F2079 /* Chrome */,
+				00B7576A2FE87A08003F2079 /* ChromeTests */,
+				00B757742FE87A08003F2079 /* ChromeUITests */,
 				00B757562FE87A06003F2079 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 		00B757562FE87A06003F2079 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00B757552FE87A06003F2079 /* StealthBrowser.app */,
-				00B757672FE87A08003F2079 /* StealthBrowserTests.xctest */,
-				00B757712FE87A08003F2079 /* StealthBrowserUITests.xctest */,
+				00B757552FE87A06003F2079 /* Chrome.app */,
+				00B757672FE87A08003F2079 /* ChromeTests.xctest */,
+				00B757712FE87A08003F2079 /* ChromeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00B757542FE87A06003F2079 /* StealthBrowser */ = {
+		00B757542FE87A06003F2079 /* Chrome */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00B7577B2FE87A08003F2079 /* Build configuration list for PBXNativeTarget "StealthBrowser" */;
+			buildConfigurationList = 00B7577B2FE87A08003F2079 /* Build configuration list for PBXNativeTarget "Chrome" */;
 			buildPhases = (
 				00B757512FE87A06003F2079 /* Sources */,
 				00B757522FE87A06003F2079 /* Frameworks */,
@@ -108,18 +108,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				00B757572FE87A06003F2079 /* StealthBrowser */,
+				00B757572FE87A06003F2079 /* Chrome */,
 			);
-			name = StealthBrowser;
+			name = Chrome;
 			packageProductDependencies = (
 			);
-			productName = StealthBrowser;
-			productReference = 00B757552FE87A06003F2079 /* StealthBrowser.app */;
+			productName = Chrome;
+			productReference = 00B757552FE87A06003F2079 /* Chrome.app */;
 			productType = "com.apple.product-type.application";
 		};
-		00B757662FE87A08003F2079 /* StealthBrowserTests */ = {
+		00B757662FE87A08003F2079 /* ChromeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00B7577E2FE87A08003F2079 /* Build configuration list for PBXNativeTarget "StealthBrowserTests" */;
+			buildConfigurationList = 00B7577E2FE87A08003F2079 /* Build configuration list for PBXNativeTarget "ChromeTests" */;
 			buildPhases = (
 				00B757632FE87A08003F2079 /* Sources */,
 				00B757642FE87A08003F2079 /* Frameworks */,
@@ -131,18 +131,18 @@
 				00B757692FE87A08003F2079 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				00B7576A2FE87A08003F2079 /* StealthBrowserTests */,
+				00B7576A2FE87A08003F2079 /* ChromeTests */,
 			);
-			name = StealthBrowserTests;
+			name = ChromeTests;
 			packageProductDependencies = (
 			);
-			productName = StealthBrowserTests;
-			productReference = 00B757672FE87A08003F2079 /* StealthBrowserTests.xctest */;
+			productName = ChromeTests;
+			productReference = 00B757672FE87A08003F2079 /* ChromeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		00B757702FE87A08003F2079 /* StealthBrowserUITests */ = {
+		00B757702FE87A08003F2079 /* ChromeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00B757812FE87A08003F2079 /* Build configuration list for PBXNativeTarget "StealthBrowserUITests" */;
+			buildConfigurationList = 00B757812FE87A08003F2079 /* Build configuration list for PBXNativeTarget "ChromeUITests" */;
 			buildPhases = (
 				00B7576D2FE87A08003F2079 /* Sources */,
 				00B7576E2FE87A08003F2079 /* Frameworks */,
@@ -154,13 +154,13 @@
 				00B757732FE87A08003F2079 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				00B757742FE87A08003F2079 /* StealthBrowserUITests */,
+				00B757742FE87A08003F2079 /* ChromeUITests */,
 			);
-			name = StealthBrowserUITests;
+			name = ChromeUITests;
 			packageProductDependencies = (
 			);
-			productName = StealthBrowserUITests;
-			productReference = 00B757712FE87A08003F2079 /* StealthBrowserUITests.xctest */;
+			productName = ChromeUITests;
+			productReference = 00B757712FE87A08003F2079 /* ChromeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 00B757502FE87A06003F2079 /* Build configuration list for PBXProject "StealthBrowser" */;
+			buildConfigurationList = 00B757502FE87A06003F2079 /* Build configuration list for PBXProject "Chrome" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00B757542FE87A06003F2079 /* StealthBrowser */,
-				00B757662FE87A08003F2079 /* StealthBrowserTests */,
-				00B757702FE87A08003F2079 /* StealthBrowserUITests */,
+				00B757542FE87A06003F2079 /* Chrome */,
+				00B757662FE87A08003F2079 /* ChromeTests */,
+				00B757702FE87A08003F2079 /* ChromeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		00B757692FE87A08003F2079 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 00B757542FE87A06003F2079 /* StealthBrowser */;
+			target = 00B757542FE87A06003F2079 /* Chrome */;
 			targetProxy = 00B757682FE87A08003F2079 /* PBXContainerItemProxy */;
 		};
 		00B757732FE87A08003F2079 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 00B757542FE87A06003F2079 /* StealthBrowser */;
+			target = 00B757542FE87A06003F2079 /* Chrome */;
 			targetProxy = 00B757722FE87A08003F2079 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -393,7 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = StealthBrowser/StealthBrowser.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Chrome/Chrome.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -405,14 +405,16 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Config/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Chrome;
 				INFOPLIST_KEY_CFBundleIconFile = AppIcon;
+				INFOPLIST_KEY_CFBundleName = Chrome;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.StealthBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.Chrome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -428,7 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = StealthBrowser/StealthBrowser.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Chrome/Chrome.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -440,14 +442,16 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Config/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Chrome;
 				INFOPLIST_KEY_CFBundleIconFile = AppIcon;
+				INFOPLIST_KEY_CFBundleName = Chrome;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.StealthBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.Chrome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -469,14 +473,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.StealthBrowserTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.ChromeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StealthBrowser.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StealthBrowser";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chrome.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Chrome";
 			};
 			name = Debug;
 		};
@@ -490,14 +494,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.StealthBrowserTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.ChromeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StealthBrowser.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StealthBrowser";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chrome.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Chrome";
 			};
 			name = Release;
 		};
@@ -509,14 +513,14 @@
 				DEVELOPMENT_TEAM = K4P3LXTCJ6;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.StealthBrowserUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.ChromeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = StealthBrowser;
+				TEST_TARGET_NAME = Chrome;
 			};
 			name = Debug;
 		};
@@ -528,21 +532,21 @@
 				DEVELOPMENT_TEAM = K4P3LXTCJ6;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.StealthBrowserUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sidgroup.ChromeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = StealthBrowser;
+				TEST_TARGET_NAME = Chrome;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00B757502FE87A06003F2079 /* Build configuration list for PBXProject "StealthBrowser" */ = {
+		00B757502FE87A06003F2079 /* Build configuration list for PBXProject "Chrome" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00B757792FE87A08003F2079 /* Debug */,
@@ -551,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00B7577B2FE87A08003F2079 /* Build configuration list for PBXNativeTarget "StealthBrowser" */ = {
+		00B7577B2FE87A08003F2079 /* Build configuration list for PBXNativeTarget "Chrome" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00B7577C2FE87A08003F2079 /* Debug */,
@@ -560,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00B7577E2FE87A08003F2079 /* Build configuration list for PBXNativeTarget "StealthBrowserTests" */ = {
+		00B7577E2FE87A08003F2079 /* Build configuration list for PBXNativeTarget "ChromeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00B7577F2FE87A08003F2079 /* Debug */,
@@ -569,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00B757812FE87A08003F2079 /* Build configuration list for PBXNativeTarget "StealthBrowserUITests" */ = {
+		00B757812FE87A08003F2079 /* Build configuration list for PBXNativeTarget "ChromeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00B757822FE87A08003F2079 /* Debug */,

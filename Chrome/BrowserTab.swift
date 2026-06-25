@@ -8,7 +8,7 @@ final class BrowserTab: Identifiable {
 
     var displayTitle: String {
         let title = state.title.trimmingCharacters(in: .whitespacesAndNewlines)
-        if title.isEmpty || title == "Stealth Browser" {
+        if title.isEmpty || title == "Chrome" {
             return shortURL ?? "New Tab"
         }
         return title

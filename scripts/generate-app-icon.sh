@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-ICNS="$ROOT/StealthBrowser/AppIcon.icns"
+ICNS="$ROOT/Chrome/AppIcon.icns"
 CHROME_ICNS="/Applications/Google Chrome.app/Contents/Resources/app.icns"
 TMPICONSET="/tmp/StealthAppIcon.iconset"
 SOURCE_PNG="/tmp/stealth_icon_source_1024.png"

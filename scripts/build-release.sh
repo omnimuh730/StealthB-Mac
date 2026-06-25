@@ -3,13 +3,13 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DIST="$ROOT/dist"
-APP_NAME="StealthBrowser.app"
+APP_NAME="Chrome.app"
 
 "$ROOT/scripts/generate-app-icon.sh"
 
 cd "$ROOT"
 xcodebuild \
-  -scheme StealthBrowser \
+  -scheme Chrome \
   -configuration Release \
   -derivedDataPath "$ROOT/.derivedData" \
   build
